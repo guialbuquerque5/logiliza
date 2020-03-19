@@ -1,0 +1,7 @@
+schema {
+    query: MainQuery
+    mutation: MainMutation
+}
+
+type MainQuery {}
+type MainMutation {}

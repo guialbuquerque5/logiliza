@@ -1,0 +1,118 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": 2,
+        "author": "Albuquerque",
+        "changes": [
+          {
+            "sql": {
+              "sql": "CREATE TYPE user_type AS ENUM ('MASTER', 'ADMIN', 'USER', 'DRIVER');"
+            },
+            "createTable": {
+              "tableName": "user",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "email",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "password",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "type",
+                    "type": "user_type",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "creation_date",
+                    "type": "TIMESTAMP",
+                    "defaultValueComputed": "CURRENT_TIMESTAMP",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "exclusion_date",
+                    "type": "TIMESTAMP",
+                    "defaultValueComputed": "NULL",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "customer_id",
+              "baseTableName": "user",
+              "constraintName": "fk_user_customer_id",
+              "onDelete": "CASCADE",
+              "referencedTableName": "customer",
+              "referencedColumnNames": "id",
+              "validate": true
+            }
+          },
+          {
+            "createIndex": {
+              "indexName": "idx_user_customer_id",
+              "tableName": "user",
+              "column": {
+                "name": "customer_id"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+
+type Position {
+    _id: String
+    senderId: Int!
+    location: Coordinate
+    velocity: Int
+    battery: Int
+    positionTime: String
+}
+
+input PositionInput {
+    senderId: Int!
+    location: CoordinateInput
+    velocity: Int
+    battery: Int
+}
+
+input CoordinateInput {
+    type: String
+    coordinates: [Float]
+}
+type Coordinate {
+    type: String
+    coordinates: [Float]
+}
+
+type PositionQuery {
+
+}
+
+extend type MainMutation {
+    insertPosition(position: PositionInput): Position
+}

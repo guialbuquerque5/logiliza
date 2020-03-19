@@ -1,0 +1,22 @@
+type User {
+    id: Int
+    name: Int!
+    email: String!
+    role: String
+}
+
+input UserRegistrationInput {
+    email: String!
+    number: String
+    password: String!
+    name: String!
+    clientId: Int
+}
+
+extend type MainQuery {
+    getUser(id: Int!): User
+}
+
+extend type MainMutation {
+    registerUser(user: UserRegistrationInput): Boolean
+}

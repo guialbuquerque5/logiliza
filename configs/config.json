@@ -1,0 +1,51 @@
+{
+  "production": false,
+  "pgsql": {
+    "port": 3306,
+    "host": "localhost",
+    "database": "vuzy",
+    "schema": "core",
+    "user": "guilherme",
+    "password": "root",
+    "poolSize": 3
+  },
+  "mongoClient": {
+    "host" : "127.0.0.1",
+    "port" : 27017,
+    "db_name": "vuzy",
+    "useObjectId": true,
+
+    "serverSelectionTimeoutMS" : 30000,
+
+    "maxPoolSize" : 50,
+    "minPoolSize" : 10,
+    "maxIdleTimeMS" : 300000,
+    "maxLifeTimeMS" : 3600000,
+    "waitQueueMultiple"  : 10,
+    "waitQueueTimeoutMS" : 10000,
+    "maintenanceFrequencyMS" : 2000,
+    "maintenanceInitialDelayMS" : 500,
+
+    "username"   : "admin",
+    "password"   : "root",
+    "authSource" : "admin",
+
+    "connectTimeoutMS" : 300000,
+    "socketTimeoutMS"  : 100000,
+    "sendBufferSize"    : 8192,
+    "receiveBufferSize" : 8192,
+    "keepAlive" : true,
+
+    "heartbeat.socket" : {
+      "connectTimeoutMS" : 300000,
+      "socketTimeoutMS"  : 100000,
+      "sendBufferSize"    : 8192,
+      "receiveBufferSize" : 8192,
+      "keepAlive" : false
+    },
+
+    "heartbeatFrequencyMS" :    1000,
+    "minHeartbeatFrequencyMS" : 500
+  }
+
+}

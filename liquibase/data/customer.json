@@ -1,0 +1,110 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": 1,
+        "author": "Albuquerque",
+        "changes": [
+          {
+            "sql": {
+              "sql": "CREATE TYPE customer_type AS ENUM ('INDIVIDUAL', 'CORPORATION');CREATE TYPE customer_status AS ENUM ('ACTIVE', 'FREE', 'DEACTIVATE', 'DELETED');",
+            },
+            "createTable": {
+              "tableName": "customer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "document_type",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "document_number",
+                    "type": "TEXT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "phones",
+                    "type": "JSONB[]",
+                    "defaultValue": "{}",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "type",
+                    "type": "customer_type",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "type": "customer_status",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "email",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "website",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "defaultValueComputed": "CURRENT_TIMESTAMP"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

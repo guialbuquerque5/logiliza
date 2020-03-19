@@ -1,0 +1,13 @@
+{
+  "databaseChangeLog": [
+    {
+      "include": {
+        "file": "data/customer.json"
+      }
+    },{
+      "include": {
+        "file": "data/user.json"
+      }
+    }
+  ]
+}

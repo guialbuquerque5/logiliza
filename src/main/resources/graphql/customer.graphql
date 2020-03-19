@@ -1,0 +1,33 @@
+enum Status{
+    ACTIVE,
+    FREE,
+    DEACTIVATE
+}
+
+type Customer {
+    id: Int!
+    name: Int!
+    email: String!
+    phone: String
+    type: String
+    status: Status!
+    DocumentNumber: String
+    DocumentType: String
+    website: String
+}
+
+input CustomerRegistrationInput {
+    id: Int
+    name: String!
+    email: String!
+    password: String!
+    phone: String
+    status: Status!
+    DocumentNumber: String
+    DocumentType: String
+    website: String
+}
+
+extend type MainMutation {
+    registerClient(customer: CustomerRegistrationInput): Customer
+}
