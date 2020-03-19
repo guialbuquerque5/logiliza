@@ -11,7 +11,9 @@ class MainResolver(
     private val vertx: Vertx,
     private val userResolver: UserResolver,
     private val positionResolver: PositionResolver,
-    private val customerResolver: CustomerResolver
+    private val customerResolver: CustomerResolver,
+    private val sessionResolver: SessionResolver
+
 ): Resolver(vertx, "main.graphql"){
 
     suspend fun buildGraphqlSchema(): GraphQLSchema{
@@ -20,6 +22,7 @@ class MainResolver(
         userResolver.wire(builder)
         positionResolver.wire(builder)
         customerResolver.wire(builder)
+        sessionResolver.wire(builder)
 
         return graphql.schema.idl.SchemaGenerator()
             .makeExecutableSchema(createGraphqlTypeDefinition(), builder.build())

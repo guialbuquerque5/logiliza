@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer
 
-enum class UserRole {
+enum class UserType {
     MASTER,
     ADMIN,
     USER,
@@ -17,8 +17,9 @@ data class User(
     )
     val name: String,
     val email: String,
-    val number: String,
-    val role: UserRole = UserRole.NONE,
+    val password: String,
+    val phone: String,
+    val type: UserType = UserType.NONE,
     val customerId: Int,
     val id: Int? = null
 )

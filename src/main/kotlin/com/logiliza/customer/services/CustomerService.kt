@@ -17,7 +17,7 @@ class CustomerService(
                 
             """.trimIndent()).await().use { pq ->
                 val newCustomer = pq.execute().await().first()
-                userService.createUser("", "")
+                //userService.createUser("", "")
             }
         }
     }

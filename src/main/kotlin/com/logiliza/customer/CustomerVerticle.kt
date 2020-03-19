@@ -60,7 +60,7 @@ class CustomerVerticle : CoroutineVerticle() {
             // Write to the response and end it
 
 
-            response.end(authService.authenticateUser("email", "senha"))
+            //response.end(authService.authenticateUser("email", "senha"))
         }
         server.listen(8080)
     }

@@ -37,7 +37,6 @@ class UserResolver constructor(
         val user = mapper.convertValue<User>(
             env.getArgument<HashMap<String, Any>>("user")
         )
-        userService.createUser(user.email, "")
     }
 }
 

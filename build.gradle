@@ -47,7 +47,7 @@ compileTestKotlin {
 
 
 mainClassName = "io.vertx.core.Launcher"
-def mainVerticleName = "com.vuzy.user.ClientVerticle"
+def mainVerticleName = "com.logiliza.customer.CustomerVerticle"
 
 repositories {
     jcenter()
